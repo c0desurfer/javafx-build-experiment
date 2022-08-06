@@ -42,5 +42,5 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: target/javafx-build-experiment-1.0-SNAPSHOT.jar
           asset_name: jar-file
-          tag: ${{ github.ref }}
+          tag: ${{ steps.tagger.outputs.new-tag }}
           overwrite: true
