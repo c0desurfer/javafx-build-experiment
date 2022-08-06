@@ -15,6 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: phish108/autotag-action@1.1.51
+        id: tagger
         with:
           github-token: ${{ secrets.GITHUB_TOKEN}}
       - name: Set up JDK 17
