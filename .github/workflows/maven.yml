@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: butlerlogic/action-autotag@stable
+      - uses: phish108/autotag-action@1.1.51
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN}}
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
