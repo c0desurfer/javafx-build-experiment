@@ -33,6 +33,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.tagger.outputs.new-tag }}
-          release_name: Release ${{ github.ref }}
+          release_name: ${{ steps.tagger.outputs.new-tag }}
           draft: false
           prerelease: false
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: target/javafx-build-experiment-1.0-SNAPSHOT.jar
+          asset_name: jar-file
+          tag: ${{ github.ref }}
+          overwrite: true
